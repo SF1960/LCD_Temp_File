@@ -1,4 +1,4 @@
-Display temperature and date on LCD and upload to a texr file
+Display temperature and date on LCD and upload to a text file
 
 Copy the two files to your root directory
 
