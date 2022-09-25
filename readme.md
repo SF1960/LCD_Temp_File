@@ -1,5 +1,7 @@
 Display temperature and date on LCD and upload to a text file
 
+To download from GitHub https://github.com/SF1960/LCD_Temp_File.git
+
 Copy the two files to your root directory
 
 pico_temp_display_LCD.py
