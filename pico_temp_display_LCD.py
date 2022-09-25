@@ -77,8 +77,6 @@ def read_time():
     time_stamp_string="%02d.%02d.%02d-%02d.%02d.%02d"%(timestamp[0:3] + timestamp[4:7])
     datestring = time_stamp_string.rsplit("-",2)
 
-    #print ("Date:" + datestring[0] + " - Time:" + datestring[1])
-    
     return ("Time:" + datestring[1])
 
 def read_date():
@@ -87,8 +85,6 @@ def read_date():
     timestamp = rtc.datetime()
     time_stamp_string="%02d.%02d.%02d-%02d.%02d.%02d"%(timestamp[0:3] + timestamp[4:7])
     datestring = time_stamp_string.rsplit("-",2)
-
-    #print ("Date:" + datestring[0] + " - Time:" + datestring[1])
     
     return ("Date:" + datestring[0])
     
@@ -102,8 +98,6 @@ def read_temp():
     temperature = 27 - (reading - 0.706)/0.001721
     formatted_temperature = "{:.2f}".format(temperature)
     string_temperature = str("Temp:" + formatted_temperature + " C")
-    
-    #print(string_temperature)
     
     return string_temperature
 
@@ -231,25 +225,22 @@ try:
     while True:
        
         ''' display time on LCD '''
-        #real_time = read_time()
         lcd.move_to(0,1)
         lcd.putstr(read_time())
        
         ''' display temp on LCD '''
-        #temperature = read_temp()
         lcd.move_to(0,0)
         lcd.putstr(read_temp())
         lcd.move_to(10,0)
         lcd.putchar(chr(con.CHAR_CELCIUS))
         
-        #real_date = read_date()
         ''' write results to a text file '''
         csv.write_string(str(read_date()) + " - " + str(read_time()) + " - " + str(read_temp()) + "\n",con.FILE_APPEND)
         
         print(str(read_date()) + " - " + str(read_time()) + " - " + str(read_temp()))
         
         ''' to show user that code is running
-        flasf the LED at the update interval rate '''
+        flash the LED at the update interval rate '''
         LED.toggle()
         
         utime.sleep(UPDATE_INTERVAL)
