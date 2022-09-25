@@ -26,10 +26,6 @@ LED = Pin(25, Pin.OUT)
 i2c = I2C(0, sda=machine.Pin(0), scl=machine.Pin(1), freq=400000)
 lcd = I2cLcd(i2c, con.I2C_ADDR, con.I2C_NUM_ROWS, con.I2C_NUM_COLS)
 
-
-''' set up the file header string '''
-#file_header = "Temperature logger (C) SGF 2022. Update Interval: "
-
 ''' function to handle the greeting '''
 def greeting():
     
